@@ -7,6 +7,7 @@ import {
   FlatList,
 } from "react-native";
 import Icons from "../constants/icons/icons";
+import SelectRoute from "./SelectRoute";
 
 import { styles } from "../style/components/SearchFlight";
 
@@ -43,24 +44,7 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
   </TouchableOpacity>
 );
 
-function SelectRoute({ navigation, iconName, title, route, type }) {
-  return (
-    <View style={styles.selectContainer}>
-      <View style={styles.selectSection}>
-        <Icons name={iconName} color={"#C2C2C2"} size={30} />
-        <View style={styles.selectWrapper}>
-          <Text style={styles.selectTitle}>{title}</Text>
-          <TouchableOpacity
-            style={styles.selectName}
-            onPress={() => navigation.navigate(type)}
-          >
-            <Text>{route}</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
-  );
-}
+
 
 const SearchFlight = ({ navigation }) => {
   const [selectedId, setSelectedId] = useState("1");
