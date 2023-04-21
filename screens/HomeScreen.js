@@ -15,7 +15,7 @@ const HomeScreen = ({ navigation }) => {
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
         <SafeAreaView style={styles.container}>
           <HomeHead navigation={navigation} />
-          <SearchFlight />
+          <SearchFlight navigation={navigation} />
           <StatusBar style="auto" />
         </SafeAreaView>
       </ImageBackground>

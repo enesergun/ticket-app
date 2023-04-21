@@ -43,7 +43,26 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
   </TouchableOpacity>
 );
 
-const HomeHead = ({ navigation }) => {
+function SelectRoute({ navigation, iconName, title, route, type }) {
+  return (
+    <View style={styles.selectContainer}>
+      <View style={styles.selectSection}>
+        <Icons name={iconName} color={"#C2C2C2"} size={30} />
+        <View style={styles.selectWrapper}>
+          <Text style={styles.selectTitle}>{title}</Text>
+          <TouchableOpacity
+            style={styles.selectName}
+            onPress={() => navigation.navigate(type)}
+          >
+            <Text>{route}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const SearchFlight = ({ navigation }) => {
   const [selectedId, setSelectedId] = useState("1");
 
   const renderItem = ({ item }) => {
@@ -69,10 +88,45 @@ const HomeHead = ({ navigation }) => {
           extraData={selectedId}
           horizontal={true}
         />
-        <Text>{selectedId}</Text>
+
+        <SelectRoute
+          iconName="LocationIcon"
+          title="From"
+          route="Istanbul"
+          navigation={navigation}
+          type={"Routes"}
+        />
+
+        <SelectRoute
+          iconName="LocationIcon"
+          title="To"
+          route="Ankara"
+          navigation={navigation}
+          type={"Routes"}
+        />
+        <SelectRoute
+          iconName="CalendarIcon"
+          title="Departure"
+          route="Sat, 24 Dec 2022"
+          navigation={navigation}
+          type={"Calendar"}
+        />
+        <SelectRoute
+          iconName="UserIcon"
+          title="Passenger & Cabin Class"
+          route="1 Passenger, Economy"
+          navigation={navigation}
+          type={"Passenger"}
+        />
+        <TouchableOpacity
+          style={styles.searchFlightButton}
+          onPress={() => console.log("SearchFlight")}
+        >
+          <Text style={styles.searchButtonText}>Search Flight</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-export default HomeHead;
+export default SearchFlight;

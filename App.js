@@ -39,6 +39,11 @@ const HomeStack = () => {
         component={ProfileScreen}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="Routes"
+        component={ProfileScreen}
+        options={{ headerShown: false, presentation: "modal" }}
+      />
     </Stack.Navigator>
   );
 };
@@ -113,6 +118,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#C2C2C2",
   },
 });
