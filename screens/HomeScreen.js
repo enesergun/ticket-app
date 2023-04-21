@@ -1,38 +1,26 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-} from "react-native";
+import { View, ImageBackground } from "react-native";
 
 import useBearStore from "../store/useBearStore";
+import HomeHead from "../components/HomeHead";
+import SearchFlight from "../components/SearchFlight";
+import { styles } from "../style/screens/HomeScreenStyle";
 import { StatusBar } from "expo-status-bar";
+import { SafeAreaView } from "react-native-safe-area-context";
+const image = require("../assets/background.png");
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const bears = useBearStore((state) => state.bears);
   return (
-    <View style={styles.container}>
-      <Text>Home! {bears}</Text>
-      <TouchableOpacity
-        onPress={() => useBearStore.getState().increasePopulation()}
-      >
-        <Text>bas</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => useBearStore.getState().removeAllBears()}
-      >
-        <Text>sıfırla</Text>
-      </TouchableOpacity>
-      <StatusBar style="auto" />
+    <View style={styles.homeScreen}>
+      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <SafeAreaView style={styles.container}>
+          <HomeHead navigation={navigation} />
+          <SearchFlight />
+          <StatusBar style="auto" />
+        </SafeAreaView>
+      </ImageBackground>
     </View>
   );
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

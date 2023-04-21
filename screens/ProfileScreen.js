@@ -1,19 +1,21 @@
 import {
-    StyleSheet,
-    Text,
-    View,
-    SafeAreaView,
-    TouchableOpacity,
-  } from "react-native";
-  
-  import useBearStore from "../store/useBearStore";
-  import { StatusBar } from "expo-status-bar";
-  
-  const ProfileScreen = () => {
-    const bears = useBearStore((state) => state.bears);
-    return (
-      <View style={styles.container}>
-        <Text>Home! {bears}</Text>
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
+
+import useBearStore from "../store/useBearStore";
+import { StatusBar } from "expo-status-bar";
+const image = require("../assets/background.png");
+
+const ProfileScreen = () => {
+  const bears = useBearStore((state) => state.bears);
+  return (
+    <View style={styles.container}>
+      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <Text>Profile! {bears}</Text>
         <TouchableOpacity
           onPress={() => useBearStore.getState().increasePopulation()}
         >
@@ -25,15 +27,19 @@ import {
           <Text>sıfırla</Text>
         </TouchableOpacity>
         <StatusBar style="auto" />
-      </View>
-    );
-  };
-  
-  export default ProfileScreen;
-  
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-  });
-  
+      </ImageBackground>
+    </View>
+  );
+};
+
+export default ProfileScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  image: {
+    flex: 0.3,
+    justifyContent: "center",
+  },
+});

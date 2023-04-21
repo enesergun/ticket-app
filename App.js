@@ -5,9 +5,12 @@ import {
   View,
   SafeAreaView,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+
 import HomeScreen from "./screens/HomeScreen";
 import TicketScreen from "./screens/TicketScreen";
 import MessageScreen from "./screens/MessageScreen";
@@ -21,21 +24,37 @@ import MessageIcon from "./constants/icons/MessageIcon";
 import ProfileIcon from "./constants/icons/ProfileIcon";
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-
+const HomeStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
 
 export default function App() {
   return (
     <NavigationContainer>
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Tab.Navigator
           screenOptions={{
             headerShown: false,
           }}
         >
           <Tab.Screen
-            name="Home"
-            component={HomeScreen}
+            name="HomeStack"
+            component={HomeStack}
             options={{
               tabBarLabel: "Home",
               tabBarIcon: ({ color, size, focused }) => {
@@ -86,7 +105,7 @@ export default function App() {
             }}
           />
         </Tab.Navigator>
-      </SafeAreaView>
+      </View>
     </NavigationContainer>
   );
 }
@@ -94,5 +113,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fff",
   },
 });
