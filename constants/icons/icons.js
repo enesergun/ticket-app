@@ -5,6 +5,8 @@ import ShipIcon from "./ShipIcon";
 import LocationIcon from "./LocationIcon";
 import CalendarIcon from "./CalendarIcon";
 import UserIcon from "./UserIcon";
+import CloseIcon from "./CloseIcon";
+
 
 const Icons = ({ name, ...props }) => {
   switch (name) {
@@ -22,6 +24,8 @@ const Icons = ({ name, ...props }) => {
       return <CalendarIcon {...props} />;
     case "UserIcon":
       return <UserIcon {...props} />;
+    case "CloseIcon":
+      return <CloseIcon {...props} />;
     default:
       return null;
   }

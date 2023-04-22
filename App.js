@@ -15,6 +15,7 @@ import HomeScreen from "./screens/HomeScreen";
 import TicketScreen from "./screens/TicketScreen";
 import MessageScreen from "./screens/MessageScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import SearchProvinceScreen from "./screens/SearchProvinceScreen";
 
 import HomeIcon from "./constants/icons/HomeIcon";
 import HomeFilledIcon from "./constants/icons/HomeFilledIcon";
@@ -41,7 +42,7 @@ const HomeStack = () => {
       />
       <Stack.Screen
         name="Routes"
-        component={ProfileScreen}
+        component={SearchProvinceScreen}
         options={{ headerShown: false, presentation: "modal" }}
       />
     </Stack.Navigator>
