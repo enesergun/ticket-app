@@ -27,7 +27,29 @@ export const styles = StyleSheet.create({
   TicketınfoRight: {
     alignItems: "flex-end",
   },
+  Trip: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: 100,
+    marginBottom: 10,
+  },
+  dashedDot: {
+    position: "absolute",
+    width: 100,
+    height: 1,
+    borderColor: "#757575",
+    borderStyle: "dashed",
+    borderWidth: 1,
+    zIndex: -1,
+  },
   FlightIcon: {
     rotate: "90deg",
-  }
+  },
+  dot: {
+    width: 5,
+    height: 5,
+    borderRadius: 5,
+    backgroundColor: "#757575",
+  },
 });

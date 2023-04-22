@@ -14,6 +14,8 @@ const Ticket = ({ title, viewAll, children, alignRight }) => {
         <Text style={styles.TicketDay}>Dec 24 2022</Text>
       </View>
       <View style={styles.Trip}>
+        <View style={styles.dashedDot}/>
+        <View style={styles.dot} />
         <View
           style={[
             {
@@ -23,6 +25,7 @@ const Ticket = ({ title, viewAll, children, alignRight }) => {
         >
           <Icons name={"FlightIcon"} color={"#FA8D35"} />
         </View>
+        <View style={styles.dot} />
       </View>
       <View style={[styles.TicketInfoWrapper, styles.TicketınfoRight]}>
         <Text style={styles.TicketProvince}>Istnabul</Text>
